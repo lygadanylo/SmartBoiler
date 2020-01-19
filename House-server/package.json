@@ -1,0 +1,15 @@
+{
+  "name": "server",
+  "version": "0.0.1",
+  "description": "server for smart-house app",
+  "main": "server",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "author": "Danylo Lyha",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1"
+  }
+}
