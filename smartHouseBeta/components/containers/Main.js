@@ -4,9 +4,6 @@ import {FeatchData} from '../actions';
 import {connect} from 'react-redux';
 
 class Main extends Component {
-  static navigationOptions = {
-    title: 'Main',
-  };
   render() {
     const {FeatchData, temperature} = this.props;
     return (
