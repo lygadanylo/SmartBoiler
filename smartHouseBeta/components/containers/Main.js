@@ -4,20 +4,25 @@ import {FeatchData} from '../actions';
 import {connect} from 'react-redux';
 
 class Main extends Component {
+  redirect = () => {
+    const {navigation} = this.props;
+    return navigation.navigate('Stat');
+  };
+
   render() {
-    const {FeatchData, temperature} = this.props;
+    const {FeatchData, cnn_status} = this.props;
     return (
       <View style={styles.viewWrapper}>
         <Button title="Create Connection" onPress={() => FeatchData()} />
-        {temperature && <Text>{temperature}</Text>}
+        {cnn_status && this.redirect()}
       </View>
     );
   }
 }
 
 const mapStateToProps = state => {
-  const {temperature} = state;
-  return {temperature};
+  const {cnn_status} = state;
+  return {cnn_status};
 };
 
 const mapDispatchToProps = {FeatchData};

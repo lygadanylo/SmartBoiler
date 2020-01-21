@@ -1,8 +1,8 @@
 import axios from 'axios';
 let ws;
 
-export const tempData = data => ({
-  type: 'TEMP_DATA',
+export const connectionStatus = data => ({
+  type: 'CONNECTION_STATUS',
   payload: data,
 });
 
@@ -12,10 +12,10 @@ export const FeatchData = () => dispatch => {
     url: 'http://192.168.0.108:80/',
   })
     .then(response => {
-      dispatch(tempData(response.data.SID));
       ws = new WebSocket('ws://192.168.0.108:81');
       ws.onopen = () => {
         console.log('Socket connection is open');
+        dispatch(connectionStatus(true));
       };
       ws.onmessage = data => {
         console.log(data);

@@ -33,9 +33,7 @@ server.listen(WEB_PORT, () => {
 const wsServer = new webSocket.Server({ server });
 
 wsServer.on("connection", socket => {
-  socket.on("open", () => {
-    console.log("Connection opened");
-  });
+  console.log("connection created");
   socket.on("message", data => {
     console.log(data);
   });

@@ -4,8 +4,8 @@ export default (state = {}, action) => {
   console.log(action);
   console.log('##########################################');
   switch (action.type) {
-    case 'TEMP_DATA': {
-      return {...state, temperature: payload};
+    case 'CONNECTION_STATUS': {
+      return {...state, cnn_status: payload};
     }
     default: {
       return {...state, payload};
