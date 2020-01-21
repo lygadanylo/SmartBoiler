@@ -1,35 +1,13 @@
-import React, {Component} from 'react';
-import {View, Button, Text, StyleSheet} from 'react-native';
-import {FeatchData} from './components/actions';
-import {connect} from 'react-redux';
+import Main from './components/containers/Main';
+import Satists from './components/containers/Satists';
+import {createAppContainer} from 'react-navigation';
+import {createStackNavigator} from 'react-navigation';
 
-class App extends Component {
-  render() {
-    const {FeatchData, temperature} = this.props;
-    return (
-      <View style={styles.viewWrapper}>
-        <Button title="Create Connection" onPress={() => FeatchData()} />
-        {temperature && <Text>{temperature}</Text>}
-      </View>
-    );
-  }
-}
-
-const mapStateToProps = state => {
-  const {temperature} = state;
-  return {temperature};
-};
-
-const mapDispatchToProps = {FeatchData};
-
-const styles = StyleSheet.create({
-  viewWrapper: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: '100%',
-    width: '100%',
-  },
+const MainNavigator = createStackNavigator({
+  Main: Main,
+  Statistics: Satists,
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+const App = createAppContainer(MainNavigator);
+
+export default App;
