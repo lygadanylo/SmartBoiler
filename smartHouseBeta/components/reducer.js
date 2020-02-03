@@ -7,6 +7,9 @@ export default (state = {}, action) => {
     case 'CONNECTION_STATUS': {
       return {...state, cnn_status: payload};
     }
+    case 'TEMP_DATA': {
+      return {...state, temperature: payload};
+    }
     default: {
       return {...state, payload};
     }

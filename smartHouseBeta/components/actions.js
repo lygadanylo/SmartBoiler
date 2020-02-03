@@ -6,6 +6,11 @@ export const connectionStatus = data => ({
   payload: data,
 });
 
+export const temperatureData = data => ({
+  type: 'TEMP_DATA',
+  payload: data,
+});
+
 export const FeatchData = () => dispatch => {
   axios({
     method: 'GET',
@@ -19,6 +24,7 @@ export const FeatchData = () => dispatch => {
       };
       ws.onmessage = data => {
         console.log(data);
+        dispatch(temperatureData(data.data));
       };
       ws.onerror = error => {
         console.log(error);

@@ -13,8 +13,8 @@ import Stat from './components/containers/Satists';
 const store = createStore(reducer, applyMiddleware(thunk));
 
 const SmartHouse = createStackNavigator({
-  Main: Main,
-  Stat: Stat,
+  Main: {screen: Main},
+  Stat: {screen: Stat},
 });
 
 const Navigation = createAppContainer(SmartHouse);
