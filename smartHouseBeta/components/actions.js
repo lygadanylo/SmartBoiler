@@ -11,6 +11,13 @@ export const temperatureData = data => ({
   payload: data,
 });
 
+export const closeConnection = () => dispatch => {
+  if (ws) {
+    ws.close();
+  }
+  dispatch(connectionStatus(false));
+};
+
 export const FeatchData = () => dispatch => {
   axios({
     method: 'GET',
